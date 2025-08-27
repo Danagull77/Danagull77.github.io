@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var groups = Array.from(slides.querySelectorAll('.slide-group'));
     var index = 0;
 
-    // Ensure the track width equals sum of slides (optional for flex-based layout)
-    // slides.style.width = (groups.length * 100) + '%';
+    console.log('Slider initialized with', groups.length, 'slide groups');
 
     function update(){
       slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+      console.log('Current slide index:', index, 'of', groups.length - 1);
     }
     var prev = slider.querySelector('.slider-controls .prev');
     var next = slider.querySelector('.slider-controls .next');
