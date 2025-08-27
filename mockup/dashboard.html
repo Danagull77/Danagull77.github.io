@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Білім сапасы</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .dash-container { max-width: 1100px; margin: 24px auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 10px 24px rgba(12,39,64,.2); }
+    .dash-header { display:flex; align-items:center; justify-content: space-between; }
+    .dash-title { font-family: 'Montserrat', sans-serif; margin: 0; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:24px; margin-top: 16px; }
+    @media (max-width: 992px){ .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="dash-container">
+    <div class="dash-header">
+      <h1 class="dash-title">Жалпы білім сапасы</h1>
+      <a class="btn outline" href="index.html">← Басты бет</a>
+    </div>
+    <div class="grid" id="summarySection" style="display:none;">
+      <div>
+        <h3 style="margin:0 0 8px 0;">Общая успеваемость (2023-2024 vs 2024-2025)</h3>
+        <canvas id="overallChart" height="200"></canvas>
+      </div>
+      <div>
+        <h3 style="margin:0 0 8px 0;">Олимпиада (2023-2024 vs 2024-2025)</h3>
+        <canvas id="olympiadChart" height="200"></canvas>
+      </div>
+    </div>
+    <div class="grid" id="detailSection">
+      <canvas id="barChart" height="200"></canvas>
+      <canvas id="radarChart" height="200"></canvas>
+    </div>
+    <div class="grid" id="secondYear" style="margin-top:24px; display:none;">
+      <canvas id="barChart2" height="200"></canvas>
+      <canvas id="radarChart2" height="200"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

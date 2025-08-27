@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жалпы білім беретін пәндер бойынша Республикалық
+     олимпиаданың ауданы кезеңі</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .dash-container { max-width: 1100px; margin: 24px auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 10px 24px rgba(12,39,64,.2); }
+    .dash-header { display:flex; align-items:center; justify-content: space-between; flex-wrap: wrap; }
+    .dash-title { font-family: 'Montserrat', sans-serif; margin: 0; min-width: 0; }
+    .dash-header > div { display: flex; gap: 8px; flex-shrink: 0; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dash-container">
+    <div class="dash-header">
+      <h1 class="dash-title">Жалпы білім беретін пәндер бойынша Республикалық олимпиаданың ауданы кезеңі</h1>
+      <div>
+        <a class="btn outline" href="index.html" style="margin-right:8px;">← Артқа</a>
+      </div>
+    </div>
+    <div style="margin-top:16px;">
+      <canvas id="olympiadOnly" height="260"></canvas>
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const ctx = document.getElementById('olympiadOnly');
+    const data = { '2023-2024': 33.33, '2024-2025': 40.38 };
+    new Chart(ctx, {
+      type: 'bar',
+      data: { labels: Object.keys(data), datasets: [{ label: 'Олимпиада %', data: Object.values(data), backgroundColor: ['rgba(42,128,198,0.7)','rgba(107,182,232,0.7)'] }] },
+      options: { responsive: true, plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: c => `${c.parsed.y}%` } } }, scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } } }
+    });
+  });
+  </script>
+</body>
+</html>
+
+
+
